@@ -1,0 +1,120 @@
+<app-hero />
+
+<!-- 🌟 Aquí empieza el resto del layout combinado (Featured Projects, Services, CTA, Footer) -->
+<ng-container *ngTemplateOutlet="layout"></ng-container>
+
+<ng-template #layout>
+  <!-- Featured Projects -->
+  <section class="py-20 bg-muted/30">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Featured <span class="text-gradient">Projects</span>
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+        A showcase of my recent work, demonstrating various technologies and
+        problem-solving approaches.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- <app-project-card *ngFor="let project of featuredProjects" [project]="project"></app-project-card> -->
+      </div>
+
+      <p-button
+        styleClass="btn-hero p-button-lg"
+        [routerLink]="'/projects'"
+        label="View All Projects"
+        icon="pi pi-arrow-right"
+        iconPos="right"
+      ></p-button>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+        What I <span class="text-gradient">Do</span>
+      </h2>
+      <p
+        class="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 text-center"
+      >
+        I specialize in full-stack development, creating end-to-end solutions
+        that deliver exceptional user experiences.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Ejemplo de tarjeta estática -->
+        <div
+          class="p-6 card-gradient border border-primary/10 hover:shadow-lg rounded-lg transition-all group"
+        >
+          <div
+            class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-4 transition-transform group-hover:scale-110"
+          >
+            <i class="pi pi-code text-primary text-xl"></i>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Web Development</h3>
+          <p class="text-muted-foreground text-sm">
+            Modern full-stack apps with Angular, Nest, and more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section
+    class="py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10"
+  >
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Ready to Start Your <span class="text-gradient">Project?</span>
+      </h2>
+      <p class="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+        Let's collaborate and bring your ideas to life. I'm always excited to
+        work on new and challenging projects.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <p-button
+          styleClass="p-button-lg"
+          [routerLink]="'/contact'"
+          label="Get In Touch"
+          icon="pi pi-arrow-right"
+          iconPos="right"
+        ></p-button>
+        <p-button
+          styleClass="p-button-outlined p-button-lg"
+          [routerLink]="'/about'"
+          label="Learn More About Me"
+        ></p-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-primary/10">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <p class="text-muted-foreground text-center md:text-left mb-4 md:mb-0">
+          © 2024 Portfolio. Built with Angular, PrimeNG, and Tailwind CSS.
+        </p>
+        <div class="flex space-x-6">
+          <a
+            [routerLink]="'/about'"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            [routerLink]="'/projects'"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            >Projects</a
+          >
+          <a
+            [routerLink]="'/contact'"
+            class="text-muted-foreground hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </div>
+  </footer>
+</ng-template>

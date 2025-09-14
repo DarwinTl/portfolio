@@ -1,0 +1,6 @@
+.btn-hero {
+  @apply bg-gradient-to-r from-primary to-secondary text-white;
+  @apply hover:shadow-lg hover:shadow-primary/25 hover:scale-105;
+  @apply transition-all duration-300;
+  @apply animate-glow;
+}

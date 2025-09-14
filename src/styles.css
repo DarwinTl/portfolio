@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+@plugin "tailwindcss-primeui";
+body {
+  font-family: "Roboto", sans-serif;
+}
+.custom-purple-btn {
+  background-color: #7c3bed;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.custom-purple-btn:hover {
+  background-color: #6a30d3;
+}
+
+.custom-purple-outline {
+  border: 1px solid #7c3bed;
+  color: #7c3bed;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.custom-purple-outline:hover {
+  background-color: #7c3bed;
+  color: white;
+}
