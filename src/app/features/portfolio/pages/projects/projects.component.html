@@ -1,0 +1,117 @@
+<div class="min-h-screen bg-gradient-to-b from-background/90 to-background/100">
+  <div class="container mx-auto px-4 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        My <span class="text-gradient">Projects</span>
+      </h1>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        A collection of projects showcasing my skills in frontend, backend, and
+        full-stack development.
+      </p>
+    </div>
+
+    <!-- Search + Filters -->
+    <div
+      class="mb-8 flex flex-col md:flex-row gap-4 items-center justify-between"
+    >
+      <!-- Category Filters -->
+      <div class="flex flex-wrap gap-2">
+        <p-button
+          icon="pi pi-list"
+          styleClass="p-button-sm text-sm"
+          label="All"
+        ></p-button>
+        <p-button
+          icon="pi pi-code"
+          styleClass="p-button-sm p-button-outlined text-sm"
+          label="Frontend"
+        ></p-button>
+        <p-button
+          icon="pi pi-database"
+          styleClass="p-button-sm p-button-outlined text-sm"
+          label="Backend"
+        ></p-button>
+        <p-button
+          icon="pi pi-globe"
+          styleClass="p-button-sm p-button-outlined text-sm"
+          label="Full-Stack"
+        ></p-button>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Proyecto (reutilizable con ngFor) -->
+      <!-- Tarjeta de Proyecto -->
+      <div
+        class="bg-zinc-800/70 rounded-xl shadow-lg hover:shadow-2xl transition flex flex-col"
+      >
+        <!-- Imagen del proyecto -->
+        <div class="pt-4 px-4">
+          <img
+            src="one.jpg"
+            alt="Proyecto 1"
+            class="w-full h-48 object-cover rounded-xl"
+          />
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-xl font-semibold mb-2 text-foreground">
+            Proyecto Uno
+          </h3>
+          <p class="text-sm text-muted-foreground mb-4 flex-grow">
+            Una breve descripción del proyecto uno que muestre la tecnología
+            principal usada, el objetivo y lo que aporta.
+          </p>
+
+          <!-- Botones -->
+          <div class="flex flex-wrap gap-2 mt-auto">
+            <p-button
+              styleClass="p-button-sm p-button-outlined"
+              icon="pi pi-info-circle"
+              label="Detalles"
+              [routerLink]="['details']"
+            ></p-button>
+
+            <a
+              href="https://github.com/usuario/proyecto1"
+              target="_blank"
+              class="inline-block"
+            >
+              <p-button
+                styleClass="p-button-sm p-button-secondary"
+                icon="pi pi-github"
+                label="GitHub"
+              ></p-button>
+            </a>
+
+            <a
+              href="https://youtube.com/usuario/video1"
+              target="_blank"
+              class="inline-block"
+            >
+              <p-button
+                styleClass="p-button-sm p-button-danger"
+                icon="pi pi-youtube"
+                label="YouTube"
+              ></p-button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puedes duplicar los bloques de proyecto como hiciste, solo cambia el contenido -->
+    </div>
+
+    <!-- Load More -->
+    <div class="text-center mt-12">
+      <p-button
+        styleClass="p-button-lg p-button-outlined"
+        label="Load More Projects"
+        icon="pi pi-angle-down"
+      ></p-button>
+    </div>
+  </div>
+</div>
