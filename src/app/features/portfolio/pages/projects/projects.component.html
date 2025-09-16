@@ -41,9 +41,11 @@
     </div>
 
     <!-- Projects Grid -->
+
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <!-- Proyecto (reutilizable con ngFor) -->
       <!-- Tarjeta de Proyecto -->
+      @for (project of projects; track $index) {
       <div
         class="bg-zinc-800/70 rounded-xl shadow-lg hover:shadow-2xl transition flex flex-col"
       >
@@ -59,11 +61,10 @@
         <!-- Contenido -->
         <div class="p-6 flex flex-col flex-grow">
           <h3 class="text-xl font-semibold mb-2 text-foreground">
-            Proyecto Uno
+            {{ project.title }}
           </h3>
           <p class="text-sm text-muted-foreground mb-4 flex-grow">
-            Una breve descripción del proyecto uno que muestre la tecnología
-            principal usada, el objetivo y lo que aporta.
+            {{ project.shortDescription }}
           </p>
 
           <!-- Botones -->
@@ -72,14 +73,10 @@
               styleClass="p-button-sm p-button-outlined"
               icon="pi pi-info-circle"
               label="Detalles"
-              [routerLink]="['details']"
+              [routerLink]="['details', project.id]"
             ></p-button>
 
-            <a
-              href="https://github.com/usuario/proyecto1"
-              target="_blank"
-              class="inline-block"
-            >
+            <a href="{{ project.github }}" target="_blank" class="inline-block">
               <p-button
                 styleClass="p-button-sm p-button-secondary"
                 icon="pi pi-github"
@@ -88,7 +85,7 @@
             </a>
 
             <a
-              href="https://youtube.com/usuario/video1"
+              href="{{ project.youtube }}"
               target="_blank"
               class="inline-block"
             >
@@ -101,8 +98,7 @@
           </div>
         </div>
       </div>
-
-      <!-- Puedes duplicar los bloques de proyecto como hiciste, solo cambia el contenido -->
+      }
     </div>
 
     <!-- Load More -->

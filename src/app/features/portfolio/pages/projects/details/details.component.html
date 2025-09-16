@@ -5,10 +5,10 @@
     <!-- Título del Proyecto -->
     <div class="text-center">
       <h1 class="text-3xl md:text-5xl font-bold text-gradient mb-4">
-        Nombre del Proyecto
+        {{ project.title }}
       </h1>
       <p class="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto">
-        Resumen breve del proyecto destacando su propósito o impacto general.
+        {{ project.longDescription }}
       </p>
     </div>
 
@@ -25,7 +25,7 @@
       >
         <ng-template let-image pTemplate="item">
           <img
-            [src]="image"
+            src="one.jpg"
             class="w-full h-64 md:h-[400px] object-cover"
             alt="Imagen proyecto"
           />
@@ -44,22 +44,11 @@
           Tecnologías Usadas
         </h2>
         <div class="flex flex-wrap gap-4">
+          @for (item of project.technologies; track $index) {
           <span
             class="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm"
-            >Angular</span
-          >
-          <span
-            class="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm"
-            >PrimeNG</span
-          >
-          <span
-            class="px-3 py-1 rounded-full bg-secondary/20 text-secondary text-sm"
-            >Spring Boot</span
-          >
-          <span class="px-3 py-1 rounded-full bg-accent/20 text-accent text-sm"
-            >MySQL</span
-          >
-          <!-- Agrega más si quieres -->
+            >{{ item.text }}</span
+          >}
         </div>
       </div>
 
@@ -74,10 +63,9 @@
         <ul
           class="list-disc list-inside space-y-2 text-muted-foreground text-sm md:text-base"
         >
-          <li>Cómo integrar front-end y back-end vía API REST.</li>
-          <li>Trabajo con PrimeNG para componentes UI responsivos.</li>
-          <li>Gestión de rutas y lazy loading en Angular.</li>
-          <!-- Agrega más ítems si corresponden -->
+          @for (item of project.learnings; track $index) {
+          <li>{{ item.text }}</li>
+          }
         </ul>
       </div>
 
@@ -92,9 +80,9 @@
         <ul
           class="list-disc list-inside space-y-2 text-muted-foreground text-sm md:text-base"
         >
-          <li>Tiempo limitado para pruebas unitarias.</li>
-          <li>Compatibilidad entre versiones de dependencias.</li>
-          <li>Optimización de imágenes grandes.</li>
+          @for (item of project.challenges ; track $index) {
+          <li>{{ item.text }}</li>
+          }
         </ul>
       </div>
 
@@ -109,18 +97,9 @@
         <ul
           class="list-disc list-inside space-y-2 text-muted-foreground text-sm md:text-base"
         >
-          <li>
-            Agregar tests unitarios y de integración para mayor confiabilidad.
-          </li>
-          <li>Implementar autenticación con JWT.</li>
-          <li>
-            Mejorar accesibilidad y soporte para teclado / screen readers.
-          </li>
-          <li>Internacionalización (i18n) para soporte multilenguaje.</li>
-          <li>
-            Optimizar performance con lazy loading y carga progresiva de
-            imágenes.
-          </li>
+          @for (item of project.implementations; track $index) {
+          <li>{{ item.text }}</li>
+          }
         </ul>
       </div>
 
@@ -156,7 +135,7 @@
     <div class="flex flex-col md:flex-row gap-6 justify-center mt-10">
       <!-- GitHub -->
       <a
-        href="https://github.com"
+        href="{{ project.github }}"
         target="_blank"
         class="p-5 rounded-full backdrop-blur-lg border border-white/10 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-white/20 hover:scale-110 hover:-rotate-3 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-white/30 hover:bg-gradient-to-tr hover:from-white/10 hover:to-black/40 group relative overflow-hidden"
       >
@@ -176,7 +155,7 @@
 
       <!-- YouTube -->
       <a
-        href="https://youtube.com"
+        href="{{ project.youtube }}"
         target="_blank"
         class="p-5 rounded-full backdrop-blur-lg border border-red-500/20 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:scale-110 hover:rotate-2 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-red-500/50 hover:bg-gradient-to-tr hover:from-red-500/10 hover:to-black/40 group relative overflow-hidden"
       >
