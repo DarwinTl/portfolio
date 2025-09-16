@@ -8,7 +8,7 @@ export const routes: Routes = [
         children: [
             { path: '', loadComponent: () => import('./features/portfolio/pages/landing/landing.component').then(c => c.LandingComponent) },
             { path: 'projects', loadComponent: () => import('./features/portfolio/pages/projects/projects.component').then(c => c.ProjectsComponent) },
-            { path: 'projects/details', loadComponent: () => import('./features/portfolio/pages/projects/details/details.component').then(c => c.DetailsComponent) },
+            { path: 'projects/details/:id', loadComponent: () => import('./features/portfolio/pages/projects/details/details.component').then(c => c.DetailsComponent) },
             { path: 'profile', loadComponent: () => import('./features/portfolio/pages/profile/profile.component').then(c => c.ProfileComponent) }
         ]
     }
