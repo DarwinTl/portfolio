@@ -5,7 +5,7 @@ import { Technology } from './technology';
 
 export interface Project {
   id: number;
-  frontPage: string;
+  frontPage: string[];
   title: string;
   shortDescription: string;
   github: string;
@@ -15,4 +15,5 @@ export interface Project {
   learnings: Learning[];
   challenges: Challenges[];
   implementations: Implementation[];
+  gallery?:string[];
 }

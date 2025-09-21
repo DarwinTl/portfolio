@@ -4,12 +4,32 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { TooltipModule } from 'primeng/tooltip';
 import { Project } from '../../../../data/models/project';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { projects } from '../../../../data/project';
+import { CommonModule } from '@angular/common';
+import { TabViewModule } from 'primeng/tabview';
+import { AccordionModule } from 'primeng/accordion';
+import { CardModule } from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
+import { GalleriaModule } from 'primeng/galleria';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-details',
-  imports: [CarouselModule, ButtonModule, RippleModule, TooltipModule],
+  imports: [
+    CarouselModule,
+    ButtonModule,
+    RouterLink,
+    RippleModule,
+    TagModule,
+    GalleriaModule,
+    TooltipModule,
+    CommonModule,
+    TabViewModule,
+    AccordionModule,
+    CardModule,
+    ChipModule,
+  ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })
