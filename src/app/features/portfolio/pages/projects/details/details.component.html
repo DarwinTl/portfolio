@@ -66,18 +66,31 @@
 
         <!-- Botones -->
         <div class="flex flex-col gap-3">
-          <p-button
-            label="Ver en GitHub"
-            icon="pi pi-github"
+          <a
+            href="{{project.github}}"
             target="_blank"
-            styleClass="p-button-outlined p-button-secondary w-full"
-          ></p-button>
-          <p-button
-            label="Ver Demo"
-            icon="pi pi-youtube"
+            rel="noopener noreferrer"
+          >
+            <p-button
+              label="Ver en GitHub"
+              icon="pi pi-github"
+              target="_blank"
+              styleClass="p-button-outlined p-button-secondary w-full"
+            ></p-button>
+          </a>
+
+          <a
+            href="{{project.youtube}}"
             target="_blank"
-            styleClass="p-button-outlined p-button-danger w-full"
-          ></p-button>
+            rel="noopener noreferrer"
+          >
+            <p-button
+              label="Ver Demo"
+              icon="pi pi-youtube"
+              target="_blank"
+              styleClass="p-button-outlined p-button-danger w-full"
+            ></p-button>
+          </a>
         </div>
       </div>
 
@@ -133,6 +146,7 @@
     </div>
 
     <!-- Galería Adicional -->
+    <!-- GALERÍA -->
     <section class="mt-12">
       <h2
         class="text-xl font-semibold mb-6 text-sky-400 flex items-center gap-2"
@@ -140,15 +154,41 @@
         <i class="pi pi-images text-lg"></i>
         Galería del proyecto
       </h2>
+
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <img
+        <div
           *ngFor="let image of project.gallery"
-          [src]="image"
-          class="rounded-lg object-cover h-32 md:h-40 w-full"
-          alt="Captura"
-        />
+          class="relative overflow-hidden rounded-lg group cursor-pointer"
+          (click)="openImage(image)"
+        >
+          <img
+            [src]="image"
+            class="object-cover h-32 md:h-40 w-full transition-transform duration-300 group-hover:scale-105"
+            alt="Captura"
+          />
+
+          <!-- Overlay -->
+          <div
+            class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+          >
+            <span class="text-white text-sm">Ver imagen</span>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- MODAL / LIGHTBOX -->
+    <div
+      *ngIf="selectedImage"
+      class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+      (click)="closeImage()"
+    >
+      <img
+        [src]="selectedImage"
+        class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
 
     <!-- Volver -->
     <div class="text-center mt-10">
