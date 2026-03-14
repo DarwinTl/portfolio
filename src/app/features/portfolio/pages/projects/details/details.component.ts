@@ -35,6 +35,15 @@ import { TagModule } from 'primeng/tag';
 })
 export class DetailsComponent implements OnInit {
   project!: Project;
+  selectedImage: string | null = null;
+
+  openImage(image: string) {
+    this.selectedImage = image;
+  }
+
+  closeImage() {
+    this.selectedImage = null;
+  }
 
   constructor(private readonly route: ActivatedRoute) {}
 

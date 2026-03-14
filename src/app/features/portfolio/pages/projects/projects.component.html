@@ -3,11 +3,10 @@
     <!-- Header -->
     <div class="text-center mb-12">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">
-        My <span class="text-gradient">Projects</span>
+        Mis <span class="text-gradient">Proyectos</span>
       </h1>
       <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-        A collection of projects showcasing my skills in frontend, backend, and
-        full-stack development.
+        Aquí muestro alguno de mis proyectos
       </p>
     </div>
 
@@ -21,21 +20,19 @@
           icon="pi pi-list"
           styleClass="p-button-sm text-sm"
           label="All"
-        ></p-button>
-        <p-button
-          icon="pi pi-code"
-          styleClass="p-button-sm p-button-outlined text-sm"
-          label="Frontend"
+          (onClick)="filterProjects(ProjectCategory.ALL)"
         ></p-button>
         <p-button
           icon="pi pi-database"
           styleClass="p-button-sm p-button-outlined text-sm"
           label="Backend"
+          (onClick)="filterProjects(ProjectCategory.BACKEND)"
         ></p-button>
         <p-button
           icon="pi pi-globe"
           styleClass="p-button-sm p-button-outlined text-sm"
           label="Full-Stack"
+          (onClick)="filterProjects(ProjectCategory.FULL)"
         ></p-button>
       </div>
     </div>
@@ -45,7 +42,7 @@
     <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <!-- Proyecto (reutilizable con ngFor) -->
       <!-- Tarjeta de Proyecto -->
-      @for (project of projects; track $index) {
+      @for (project of filteredProjects; track $index) {
       <div
         class="bg-zinc-800/70 rounded-xl shadow-lg hover:shadow-2xl transition flex flex-col"
       >
@@ -101,13 +98,5 @@
       }
     </div>
 
-    <!-- Load More -->
-    <div class="text-center mt-12">
-      <p-button
-        styleClass="p-button-lg p-button-outlined"
-        label="Load More Projects"
-        icon="pi pi-angle-down"
-      ></p-button>
-    </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { ProjectCategory } from './category';
 import { Challenges } from './challenges';
 import { Implementation } from './implementation';
 import { Learning } from './learning';
@@ -16,4 +17,5 @@ export interface Project {
   challenges: Challenges[];
   implementations: Implementation[];
   gallery?:string[];
+  category:ProjectCategory
 }

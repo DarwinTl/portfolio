@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { Project } from '../../../data/models/project';
 import { projects } from '../../../data/project';
+import { ProjectCategory } from '../../../data/models/category';
 
 @Component({
   selector: 'app-projects',
@@ -13,9 +14,24 @@ import { projects } from '../../../data/project';
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent implements OnInit {
-  projects!: Project[];
+  ProjectCategory = ProjectCategory;
+  filteredProjects: Project[] = [];
+  selectedCategory: ProjectCategory = ProjectCategory.ALL;
 
   ngOnInit(): void {
-    this.projects = projects;
+    this.filteredProjects = projects;
+  }
+
+  filterProjects(category: ProjectCategory) {
+    this.selectedCategory = category;
+
+    if (category === ProjectCategory.ALL) {
+      this.filteredProjects = projects;
+      return;
+    }
+
+    this.filteredProjects = projects.filter(
+      (project) => project.category === category,
+    );
   }
 }
