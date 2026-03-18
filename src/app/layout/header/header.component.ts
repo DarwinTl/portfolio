@@ -11,7 +11,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
   mainItems: MenuItem[] = [];
-  socialItems: MenuItem[] = [];
+
 
   ngOnInit(): void {
     this.mainItems = [
@@ -24,12 +24,5 @@ export class HeaderComponent implements OnInit {
       { label: 'Mi perfil', icon: 'pi pi-user', routerLink: '/profile' },
     ];
 
-    this.socialItems = [
-      { icon: 'pi pi-github', routerLink: '/' },
-      {
-        icon: 'pi pi-linkedin',
-        routerLink: '/projects',
-      },
-    ];
   }
 }
