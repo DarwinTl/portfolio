@@ -18,21 +18,35 @@
       <div class="flex flex-wrap gap-2">
         <p-button
           icon="pi pi-list"
-          styleClass="p-button-sm text-sm"
           label="All"
           (onClick)="filterProjects(ProjectCategory.ALL)"
+          [styleClass]="
+            selectedCategory === ProjectCategory.ALL
+              ? 'p-button-sm text-sm'
+              : 'p-button-sm p-button-outlined text-sm'
+          "
         ></p-button>
+
         <p-button
           icon="pi pi-database"
-          styleClass="p-button-sm p-button-outlined text-sm"
           label="Backend"
           (onClick)="filterProjects(ProjectCategory.BACKEND)"
+          [styleClass]="
+            selectedCategory === ProjectCategory.BACKEND
+              ? 'p-button-sm text-sm'
+              : 'p-button-sm p-button-outlined text-sm'
+          "
         ></p-button>
+
         <p-button
           icon="pi pi-globe"
-          styleClass="p-button-sm p-button-outlined text-sm"
           label="Full-Stack"
           (onClick)="filterProjects(ProjectCategory.FULL)"
+          [styleClass]="
+            selectedCategory === ProjectCategory.FULL
+              ? 'p-button-sm text-sm'
+              : 'p-button-sm p-button-outlined text-sm'
+          "
         ></p-button>
       </div>
     </div>
@@ -43,60 +57,63 @@
       <!-- Proyecto (reutilizable con ngFor) -->
       <!-- Tarjeta de Proyecto -->
       @for (project of filteredProjects; track $index) {
-      <div
-        class="bg-zinc-800/70 rounded-xl shadow-lg hover:shadow-2xl transition flex flex-col"
-      >
-        <!-- Imagen del proyecto -->
-        <div class="pt-4 px-4">
-          <img
-            src="{{ project.frontPage }}"
-            alt="Proyecto 1"
-            class="w-full h-48 object-cover rounded-xl"
-          />
-        </div>
+        <div
+          class="bg-zinc-800/70 rounded-xl shadow-lg hover:shadow-2xl transition flex flex-col"
+        >
+          <!-- Imagen del proyecto -->
+          <div class="pt-4 px-4">
+            <img
+              src="{{ project.frontPage }}"
+              alt="Proyecto 1"
+              class="w-full h-48 object-cover rounded-xl"
+            />
+          </div>
 
-        <!-- Contenido -->
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-semibold mb-2 text-foreground">
-            {{ project.title }}
-          </h3>
-          <p class="text-sm text-muted-foreground mb-4 flex-grow">
-            {{ project.shortDescription }}
-          </p>
+          <!-- Contenido -->
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-semibold mb-2 text-foreground">
+              {{ project.title }}
+            </h3>
+            <p class="text-sm text-muted-foreground mb-4 flex-grow">
+              {{ project.shortDescription }}
+            </p>
 
-          <!-- Botones -->
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <p-button
-              styleClass="p-button-sm p-button-outlined"
-              icon="pi pi-info-circle"
-              label="Detalles"
-              [routerLink]="['details', project.id]"
-            ></p-button>
-
-            <a href="{{ project.github }}" target="_blank" class="inline-block">
+            <!-- Botones -->
+            <div class="flex flex-wrap gap-2 mt-auto">
               <p-button
-                styleClass="p-button-sm p-button-secondary"
-                icon="pi pi-github"
-                label="GitHub"
+                styleClass="p-button-sm p-button-outlined"
+                icon="pi pi-info-circle"
+                label="Detalles"
+                [routerLink]="['details', project.id]"
               ></p-button>
-            </a>
 
-            <a
-              href="{{ project.youtube }}"
-              target="_blank"
-              class="inline-block"
-            >
-              <p-button
-                styleClass="p-button-sm p-button-danger"
-                icon="pi pi-youtube"
-                label="YouTube"
-              ></p-button>
-            </a>
+              <a
+                href="{{ project.github }}"
+                target="_blank"
+                class="inline-block"
+              >
+                <p-button
+                  styleClass="p-button-sm p-button-secondary"
+                  icon="pi pi-github"
+                  label="GitHub"
+                ></p-button>
+              </a>
+
+              <a
+                href="{{ project.youtube }}"
+                target="_blank"
+                class="inline-block"
+              >
+                <p-button
+                  styleClass="p-button-sm p-button-danger"
+                  icon="pi pi-youtube"
+                  label="YouTube"
+                ></p-button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
       }
     </div>
-
   </div>
 </div>

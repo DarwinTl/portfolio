@@ -23,18 +23,7 @@
       </ng-container>
     </div>
 
-    <!-- Íconos sociales -->
-    <div class="flex items-center justify-end gap-1 flex-shrink-0">
-      <button
-        *ngFor="let item of socialItems"
-        pButton
-        type="button"
-        class="social-button"
-        [routerLink]="item.routerLink"
-      >
-        <i [ngClass]="item.icon" class="icon"></i>
-      </button>
-    </div>
+ 
   </div>
 
   <!-- Menú colapsable en móviles (opcional) -->

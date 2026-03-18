@@ -22,6 +22,13 @@ export class ProjectsComponent implements OnInit {
     this.filteredProjects = projects;
   }
 
+
+  getButtonClass(category: ProjectCategory): string {
+  return this.selectedCategory === category
+    ? 'p-button-sm text-sm'
+    : 'p-button-sm p-button-outlined text-sm';
+}
+
   filterProjects(category: ProjectCategory) {
     this.selectedCategory = category;
 
