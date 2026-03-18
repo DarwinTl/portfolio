@@ -1,0 +1,30 @@
+/* Inputs y textarea con borde blanco y texto blanco */
+.custom-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  color: #fff;
+}
+
+/* Placeholder en gris claro */
+.custom-input::placeholder {
+  color: #ccc;
+}
+
+/* Labels en blanco */
+label {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Espaciado uniforme entre campos */
+.flex.flex-col.gap-5 > * + * {
+  margin-top: 1.25rem;
+}
+
+/* Título centrado */
+h2 {
+  color: #fff;
+}

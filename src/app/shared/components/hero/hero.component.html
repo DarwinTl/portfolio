@@ -1,7 +1,7 @@
 <section
   class="relative min-h-screen flex items-center justify-center overflow-hidden"
   style="
-    background-image: url('assets/images/hero-bg.jpg');
+    background-image: url(&quot;assets/images/hero-bg.jpg&quot;);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -96,23 +96,35 @@
           <p-button
             label="Download CV"
             icon="pi pi-download"
+            (onClick)="openCV()"
             styleClass="p-button-outlined p-button-lg custom-purple-outline"
           ></p-button>
 
           <p-button
             label="Contact Me"
             icon="pi pi-send"
-            [routerLink]="'/contact'"
+            (click)="showDialog()"
             styleClass="p-button-help p-button-lg"
-          ></p-button>
+          />
+          <p-dialog
+            [(visible)]="visible"
+            [modal]="true"
+            [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+            [style]="{ border: 'none', width: '50vw', background: '#0f172a' }"
+            [draggable]="false"
+            [resizable]="false"
+          >
+            <div class="dialog-title">
+              Déjame un mensaje para ponernos en contacto
+            </div>
+            <app-contact (close)="visible = false" ></app-contact>
+          </p-dialog>
         </div>
       </div>
     </div>
 
     <!-- Social Links -->
     <div class="flex justify-center space-x-8 mt-16">
-
-      
       <a
         href="mailto:darwin18tl@gmail.com"
         target="_blank"
@@ -136,14 +148,4 @@
     </div>
   </div>
 
-  <!-- Scroll Indicator -->
-  <div
-    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-  >
-    <div
-      class="w-6 h-10 border-2 border-primary rounded-full flex justify-center"
-    >
-      <div class="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-    </div>
-  </div>
 </section>

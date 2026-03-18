@@ -9,7 +9,8 @@ export const routes: Routes = [
             { path: '', loadComponent: () => import('./features/portfolio/pages/landing/landing.component').then(c => c.LandingComponent) },
             { path: 'projects', loadComponent: () => import('./features/portfolio/pages/projects/projects.component').then(c => c.ProjectsComponent) },
             { path: 'projects/details/:id', loadComponent: () => import('./features/portfolio/pages/projects/details/details.component').then(c => c.DetailsComponent) },
-            { path: 'profile', loadComponent: () => import('./features/portfolio/pages/profile/profile.component').then(c => c.ProfileComponent) }
+            { path: 'profile', loadComponent: () => import('./features/portfolio/pages/profile/profile.component').then(c => c.ProfileComponent) },
+            { path: 'contact', loadComponent:() => import('./features/portfolio/components/contact/contact.component').then(c=> c.ContactComponent) }
         ]
     }
 ];
