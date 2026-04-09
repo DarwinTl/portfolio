@@ -11,7 +11,9 @@ export const projects: Project[] = [
     github: 'https://github.com/DarwinTl/Task-Manager-Full',
     youtube: 'https://youtu.be/2UBX-WHx3p4',
     longDescription:
-      'Task Manager es una solución completa de gestión de tareas orientada a equipos de trabajo. El sistema permite a los administradores realizar operaciones CRUD sobre tareas, asignarlas a colaboradores y monitorear su progreso. Los colaboradores, por su parte, cuentan con un tablero Kanban visual desde el cual pueden iniciar, pausar o finalizar tareas según su estado. La interfaz es dinámica y se adapta al rol del usuario, mostrando solo la información y acciones permitidas. El proyecto destaca por su enfoque modular, uso eficiente de patrones de arquitectura y buenas prácticas tanto en frontend como en backend.',
+      `Task Manager es un herramienta para equipos de trabajo. El sistema necesita un administrador el cual es el encargado de realizar operaciones CRUD sobre tareas, asignarlas a colaboradores y monitorear su progreso. 
+      Los colaboradores, por su parte, cuentan con un tablero Kanban visual desde el cual pueden iniciar, pausar o finalizar tareas según su estado. 
+      La interfaz es dinámica se adapta al rol del usuario, mostrando solo la información y acciones permitidas. `,
     technologies: [
       { id: 1, text: 'Angular' },
       { id: 2, text: 'Java (Spring Boot)' },
@@ -106,7 +108,7 @@ export const projects: Project[] = [
       'Organiza tus notas por categorías y accede fácilmente a ellas desde cualquier dispositivo.',
     github: 'https://github.com/DarwinTl/Note-manager',
     youtube: 'https://youtu.be/xl3n-q7T5To',
-    longDescription: `Note Manager es una aplicación web diseñada para la gestión eficiente de notas personales o profesionales. Permite a los usuarios crear, editar, eliminar y categorizar notas para mantener una organización clara y funcional. Las notas pueden marcarse o desmarcarse con el fin de aplicar filtros personalizados y mejorar la visualización del contenido más relevante. La interfaz visual ha sido cuidadosamente diseñada para ofrecer una experiencia de usuario intuitiva y agradable, utilizando estilos dinámicos que mejoran la apariencia y usabilidad. Este proyecto destaca por su arquitectura modular, separación de capas mediante el uso de DTOs, y una interfaz adaptable pensada tanto para desktop como dispositivos móviles.`,
+    longDescription: `Note Manager es una aplicación web diseñada para la gestión eficiente de notas personales o profesionales. Permite a los usuarios crear, editar, eliminar y categorizar notas para mantener una organización clara y funcional. Las notas pueden marcarse o desmarcarse con el fin de aplicar filtros personalizados y mejorar la visualización del contenido más relevante. La interfaz visusal fue diseñada para ofrecer una experiencia de usuario intuitiva y agradable, utilizando estilos dinámicos que mejoran la apariencia y usabilidad. Este proyecto destaca por su arquitectura modular, separación de capas mediante el uso de DTOs, y una interfaz adaptable pensada tanto para desktop como dispositivos móviles.`,
 
     technologies: [
       { id: 1, text: 'Angular' },
@@ -331,4 +333,84 @@ El proyecto está enfocado en demostrar la integración de IA con APIs como alte
     gallery: ['su0.png', 'su1.png', 'su3.png', 'su4.png', 'su5.png'],
     category:ProjectCategory.FULL
   },
+
+ {
+  id: 5,
+  frontPage: ['ec0.png'],
+  title: 'DTL-Store',
+  shortDescription: 'Backend de ecommerce multirol con gestión avanzada de productos e integración de pagos con Stripe',
+  github: 'https://github.com/DarwinTl/DTL-store',
+  youtube: 'https://www.youtube.com/watch?v=twD0ycnTtaU',
+  longDescription:
+    `Backend para un ecommerce desarrollado con Java y Spring Boot que Implementa un sistema multirol:
+    - Administrador: gestiona de forma centralizada productos, categorías, marcas y atributos, asegurando consistencia en el catálogo.
+    - Cliente: realiza el flujo completo de compra, incluyendo carrito, generación de órdenes y proceso de pago.
+    La integración con Stripe se realizó mediante payment intents, permitiendo un control más fino del flujo de pagos. Se utilizaron webhooks para sincronizar eventos de pago en tiempo real, asegurando la consistencia entre el sistema y la pasarela de pago.`,
+  technologies: [
+    { id: 1, text: 'Java' },
+    { id: 2, text: 'Spring Boot' },
+    { id: 3, text: 'Spring Data JPA' },
+    { id: 4, text: 'PostgreSQL' },
+    { id: 5, text: 'Lombok' },
+    { id: 6, text: 'Stripe API' },
+     { id: 7, text: 'JWT' },
+  ],
+  learnings: [
+    {
+      id: 1,
+      text: 'Integración de pagos utilizando Stripe Payment Intents.',
+    },
+    {
+      id: 2,
+      text: 'Implementación de webhooks para hacer flujos reactivos y cambiar estados despues de la ejecución del evento.',
+    },
+    {
+      id: 3,
+      text: 'Manejo avanzado de errores para mejorar la experiencia de uso del sistema.',
+    },
+     {
+      id: 4,
+      text: 'Bloqueo de consultas para controlar la concurrencia en operaciones criticas como el manejo de stock',
+    },
+  
+  ],
+  challenges: [
+    {
+      id: 1,
+      text: 'Comprender e implementar correctamente el flujo de Payment Intents de Stripe.',
+    },
+    {
+      id: 2,
+      text: 'Gestión de eventos asincrónicos mediante webhooks y aseguramiento de consistencia en órdenes.',
+    },
+    {
+      id: 3,
+      text: 'Simulación de pagos en entorno local utilizando Stripe CLI.',
+    },
+    {
+      id: 4,
+      text: 'Evaluación de 2 formas de pago: redirección a URL externa vs payment intents.',
+    }
+  ],
+  implementations: [
+    {
+      id: 1,
+      text: 'Implementación del frontend',
+    },
+    {
+      id: 2,
+      text: 'Implementar sistema de notificaciones por correo (confirmación de órdenes, pagos y eventos relevantes).',
+    },
+    {
+      id: 3,
+      text: 'Desarrollar módulo de analítica con métricas de negocio (ventas, comportamiento de usuarios, productos más vendidos).',
+    },
+      {
+      id: 4,
+      text: 'Implementar modulo de delivery, picking y packing',
+    },
+  ],
+  gallery: ['ec1.png', 'ec2.png', 'ec3.png', 'ec4.png', 'ec5.png','ec6.png', 'ec7.png', 'ec8.png', 'ec9.png'],
+  category: ProjectCategory.BACKEND
+}
 ];
